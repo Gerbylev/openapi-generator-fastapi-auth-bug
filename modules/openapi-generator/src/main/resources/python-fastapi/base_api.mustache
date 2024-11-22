@@ -20,6 +20,11 @@ class Base{{classname}}:
         {{#allParams}}
         {{>impl_argument_definition}},
         {{/allParams}}
+        {{#hasAuthMethods}}
+        {{#authMethods}}
+        token_{{name}}: TokenModel,
+        {{/authMethods}}
+        {{/hasAuthMethods}}
     ) -> {{returnType}}{{^returnType}}None{{/returnType}}:
         {{#notes}}"""{{.}}"""
         ...{{/notes}}{{^notes}}...{{/notes}}
